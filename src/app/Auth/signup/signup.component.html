@@ -1,0 +1,85 @@
+<br>
+<mat-card>
+    <form (submit)="onSignUp(signupForm)" #signupForm="ngForm">
+        
+        <h2>Sign Up</h2>
+
+        <p>If you are already registered, please <a [routerLink]="['/']" routerLinkActive="router-link-active">Log In</a>.</p>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput 
+            type="text"
+            placeholder="Username" 
+            ngModel
+            name="entredUsername" 
+            required
+            minlength="3"
+            maxlength="32"
+            pattern="^([a-zA-Z0-9\s_-]+)$"
+            #entredUsername="ngModel"/>
+            <mat-hint align="end">{{entredUsername.value.length}} / 32</mat-hint>
+            <mat-error *ngIf="entredUsername.invalid">{{ usernameError }}</mat-error>
+        </mat-form-field>
+        <br>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput
+            type="email" 
+            placeholder="Email"
+            ngModel
+            name="entredEmail" 
+            required
+            pattern="^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})$"
+            #entredEmail="ngModel"/>
+        
+            <mat-error *ngIf="entredEmail.invalid">{{ emailError }}</mat-error>
+        </mat-form-field>
+    
+        <br>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput 
+            type="password"
+            placeholder="password"
+            ngModel
+            name="entredPassword"
+            required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}"
+            #entredPassword="ngModel"
+            />
+            <mat-error *ngIf="entredPassword.invalid">{{ passwordError }}</mat-error>
+        </mat-form-field>
+    
+        <br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Department</mat-label>
+            <mat-select
+                name="entredDept"
+                ngModel
+                #selectedDeptMat="ngModel"
+                required
+            >
+              <mat-option value="Sanitation">Sanitation</mat-option>
+              <mat-option value="Water">Water</mat-option>
+            </mat-select>
+            <mat-error *ngIf="selectedDeptMat.invalid">Select a Department</mat-error>
+        </mat-form-field>
+    
+        <br>
+    
+        <mat-checkbox color="primary"
+            name="role"
+            ngModel
+            #selectedRole
+        >Admin User</mat-checkbox>
+
+        <br>
+
+        <button mat-raised-button color="primary" type="submit">Sign Up</button>
+    
+    </form>
+</mat-card>

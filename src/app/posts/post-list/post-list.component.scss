@@ -1,0 +1,16 @@
+
+mat-card{width: 100%;}
+
+.card-list{
+
+    mat-card{
+        min-height: 150px;
+        margin-bottom: 16px;
+    }
+}
+
+
+mat-card-content{
+    padding: 15px;
+}
+
