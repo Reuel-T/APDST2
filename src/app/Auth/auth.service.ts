@@ -12,7 +12,7 @@ export class AuthService {
   //observeable value that changes depending on if a valid token is stored or not
   private loggedIn = new Subject< boolean > ();
 
-  //Storing our token
+  //Storing our token - Used for managing sessions, helping prevent session jacking
   private token: string;
 
   constructor(private http: HttpClient, private router: Router) { }

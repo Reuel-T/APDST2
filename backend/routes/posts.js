@@ -3,7 +3,10 @@ const router = express.Router();
 
 const Post = require('../models/post');
 
-//uses this method to check if the user is in a valid session
+//uses this method to check if the user is in a valid session (logged in)
+//Used in creating, retrieving and deleting posts
+//if the user is not logged in or in an invalid session
+//the request will be denied
 const CheckAuth = require('../middleware/check-auth');
 
 
@@ -32,7 +35,6 @@ router.post('',CheckAuth, (req, res, next) =>
         )
     })
     console.log(posts);
-    
 });
 
 //get posts

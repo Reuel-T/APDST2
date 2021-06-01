@@ -1,5 +1,4 @@
 const express = require('express');
-const Post = require('./models/post');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const postRoutes = require('./routes/posts');
@@ -30,6 +29,7 @@ app.use((req, res, next) =>
 {
     res.setHeader("Access-Control-Allow-Origin",'*');
     res.setHeader("Access-Control-Allow-Headers",
+    //X Requested With - Used to prevent Cross Site Scripting (XSS)
     "Origin,X-Requested-With,Content-Type,Accept,Authorization"
     );
     res.setHeader("Access-Control-Allow-Methods","*");

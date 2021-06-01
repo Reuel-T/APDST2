@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service'; 
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-signup',
@@ -16,10 +17,12 @@ export class SignupComponent implements OnInit {
   
    /*
    * Sign up Component uses Regex and required fields to validate
-   * input before submission
+   * input before submission (in HTML Teplate)
+   * 
+   * Dom Sanitizer is used to sanitize bad input 
    */
   
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
   }
@@ -32,7 +35,12 @@ export class SignupComponent implements OnInit {
     }else
     {
       //match name in html
-      this.authService.createUser(form.value.entredUsername, form.value.entredEmail, form.value.entredPassword,  form.value.entredDept, form.value.role);
+      this.authService.createUser(
+        this.sanitizer.sanitize(SecurityContext.HTML,form.value.entredUsername),
+        this.sanitizer.sanitize(SecurityContext.HTML, form.value.entredEmail), 
+        this.sanitizer.sanitize(SecurityContext.HTML, form.value.entredPassword),
+        this.sanitizer.sanitize(SecurityContext.HTML, form.value.entredDept),
+        form.value.role);
       console.log(form.value);
     }
   }

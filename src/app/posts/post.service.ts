@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { HttpClient, HttpClientModule} from '@angular/common/http';
 import { AuthService } from '../Auth/auth.service';
 import { AuthData } from '../Auth/auth-data.model';
+import { Router } from '@angular/router';
 import  jwt_decode  from 'jwt-decode';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class PostService {
   private posts: Post[] = [];
   private updatedPosts = new Subject<Post[]>();
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
 
   //gets posts from the API
   getPosts(){
@@ -73,6 +74,7 @@ export class PostService {
       console.log(postRepsonse.message);
       this.posts.push(post);
       this.updatedPosts.next([...this.posts]);
+      this.router.navigateByUrl('/posts');
     })
   }
 

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service'; 
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-login',
@@ -9,11 +11,14 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, protected sanitizer: DomSanitizer) { }
   
   /*
    * Login Component uses Regex and required fields to validate
-   * input before submission
+   * input before submission (in HTML Teplate)
+   * 
+   * Input is sanitized by the DOM Sanitizer
+   * We can't trust input from the frontend :(
    */
 
   emailError:string = 'Please enter a valid email address';
@@ -29,7 +34,10 @@ export class LoginComponent implements OnInit {
       return;
     }else
     {
-      this.authService.login(form.value.entredEmail, form.value.entredPassword);
+      this.authService.login(
+        this.sanitizer.sanitize(SecurityContext.HTML, form.value.entredEmail), 
+        this.sanitizer.sanitize(SecurityContext.HTML, form.value.entredPassword)
+        );
     }
     console.log(form.value);
   }

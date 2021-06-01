@@ -14,6 +14,7 @@ export class PostCreateComponent implements OnInit {
 
   //error message for if the user attempts to submit an empty post
   //the field is marked as required, and has a max character limit of 500
+  //input is sanitized a dom sanitizer
   postError :string = 'Post cannot be empty';
 
   ngOnInit(): void {

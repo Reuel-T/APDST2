@@ -8,16 +8,11 @@ import { AuthService } from './Auth/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'apds-t2';
-  loggedIn :string;
 
-  constructor(public authService: AuthService) { }
+
+  constructor() { }
   
   ngOnInit(): void {
-    this.loggedIn = this.authService.getToken();
+    
   }
-  
-  htmlSnippet = 'Template <script> alert("yeet")</script> <b>Syntax</b>'
-
-  
-
 }

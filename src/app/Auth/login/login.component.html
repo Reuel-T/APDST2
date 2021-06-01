@@ -17,7 +17,7 @@
             ngModel
             name="entredEmail" 
             required
-            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
             #entredEmail="ngModel"/>
             
             <mat-error *ngIf="entredEmail.invalid">{{ emailError }}</mat-error>

@@ -14,12 +14,15 @@ export class NavComponent implements OnInit {
 
   /**
    * Nav Component that handles navigation between app components
+   * Post List, Sign Up, Login, Create Post
    */
   private loginSub: Subscription
   isLoggedIn: boolean = false;
 
 
   ngOnInit(): void {
+    //subscribes to the logged in variable in the auth service
+    //nav bar changes availabale options depending on if there is a user logged in or not
     this.authService.checkLogin();
     this.loginSub = this.authService.getUpdatedLogin().subscribe((value : boolean) => 
     {
@@ -29,6 +32,7 @@ export class NavComponent implements OnInit {
  
   onLogout()
   {
+    //logs the user out and returns them to the login page
     this.authService.logout();
     this.router.navigateByUrl('/');
   }

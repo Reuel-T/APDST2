@@ -15,6 +15,8 @@ export class PostListComponent implements OnInit {
   constructor(public postService : PostService) { }
 
   posts : Post[] = [];
+
+  //HTML Entities usage described in the html template
   
   ngOnInit(): void {
     this.postService.getPosts();
