@@ -36,7 +36,7 @@ app.use((req, res, next) =>
     next();
 });
 
-
+//use the routes defined in routes.posts.js/users.js
 app.use('/api/posts', postRoutes);
 app.use('/api/user', userRoutes);
 

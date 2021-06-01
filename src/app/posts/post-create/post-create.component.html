@@ -1,7 +1,7 @@
 <br>
 <mat-card>
 
-    <form (submit)="onSubmitOrder(postForm)" #postForm="ngForm">
+    <form (submit)="onSubmitPost(postForm)" #postForm="ngForm">
     
         <h2>Create Post</h2>
 
@@ -17,7 +17,7 @@
                 #postEntered = "ngModel"
                 placeholder="Post Content"
             ></textarea>
-            <mat-hint align="end">{{postEntered.value.length}} / 500</mat-hint>
+            <mat-hint>{{postEntered.value.length}} / 500</mat-hint>
             <mat-error *ngIf="postEntered.invalid">{{postError}}</mat-error>
         </mat-form-field>
             <button mat-raised-button color="primary" type="submit">Post</button>

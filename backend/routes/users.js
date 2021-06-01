@@ -1,11 +1,20 @@
 const express = require('express');
 const router = express.Router();
+//used for hashing the user password
 const bcrypt = require('bcrypt');
+//used for managing user sessions, 
+//preventing session jacking
 const jwt = require('jsonwebtoken');
+
 const User = require('../models/user');
 
+//used for brute force protection
+const ExpressBrute = require('express-brute');
+const store = new ExpressBrute.MemoryStore();
+const bruteforce = new ExpressBrute(store);
+
 //creates user
-router.post('/signup', (req, res, next) => 
+router.post('/signup', bruteforce.prevent, (req, res, next) => 
 {
     bcrypt.hash(req.body.password,10)
     //hashes the user password before storing in DB
@@ -46,7 +55,7 @@ router.post('/signup', (req, res, next) =>
 
 
 //user login code
-router.post('/login', (req, res, next) => 
+router.post('/login', bruteforce.prevent, (req, res, next) => 
 {
     let fetchedUser;
     //checks if we have a user with a matching email address
@@ -92,6 +101,7 @@ router.post('/login', (req, res, next) =>
                 }, 'secret_this_should_be_longer_time_is',
             {
                 expiresIn:'1h'
+                //token is given an expiry time to help prevent session jacking
             });
             res.status(200).json({token:token});
 
@@ -99,8 +109,9 @@ router.post('/login', (req, res, next) =>
     .catch(err => 
         {
             console.log('catch error');
-            //This causes a warning, because the a response was already sent to 
-            //a client.
+            //This causes a warning, because the response was already sent to 
+            //a client. Sever does not crash
+            console.log(err);
             return res.status(401).json(
                 {
                     message: 'Authentication Failed'

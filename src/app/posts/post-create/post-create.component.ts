@@ -1,9 +1,7 @@
-import { Component, Sanitizer, OnInit, SecurityContext } from '@angular/core';
+import { Component, OnInit, SecurityContext } from '@angular/core';
 import { NgForm } from '@angular/forms'
-import { Subscription } from 'rxjs';
 import { PostService } from '../post.service'
 import { DomSanitizer } from '@angular/platform-browser';
-import { Post } from '../post.model';
 
 @Component({
   selector: 'app-post-create',
@@ -14,22 +12,23 @@ export class PostCreateComponent implements OnInit {
   
   constructor(public postService : PostService, protected sanitizer: DomSanitizer) { }
 
+  //error message for if the user attempts to submit an empty post
+  //the field is marked as required, and has a max character limit of 500
   postError :string = 'Post cannot be empty';
 
   ngOnInit(): void {
   }
 
-  onSubmitOrder(PostForm: NgForm)
+  onSubmitPost(PostForm: NgForm)
   {
     if(PostForm.invalid)
     {
       return;
     }else
     { 
-      console.log( PostForm.value.enteredPost);
-      console.log(this.sanitizer.sanitize(SecurityContext.HTML, PostForm.value.enteredPost));
-      this.postService.addPost(new Date(), PostForm.value.enteredPost);
+      console.log();
+      //sanitizes the entred post and passes it to the service to be added
+      this.postService.addPost(new Date(), this.sanitizer.sanitize(SecurityContext.HTML, PostForm.value.enteredPost));
     }
   }
-
 }

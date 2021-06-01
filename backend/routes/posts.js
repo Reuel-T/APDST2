@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Post = require('../models/post');
 
-//uses this method to check if the user is authenticated before letting them do stuff
+//uses this method to check if the user is in a valid session
 const CheckAuth = require('../middleware/check-auth');
 
 

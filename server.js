@@ -1,5 +1,5 @@
 const app = require('./backend/app');
-//needed debug here to actually allow https access
+//needed debug here to actually allow https access, I wish I knew why.
 const debug = require("debug")("node-angular");
 const http = require('https');
 const fs = require('fs');

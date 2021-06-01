@@ -3,19 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { AuthData } from './auth-data.model';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import  jwt_decode  from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  //observeable value that changes depending on if a valid token is stored or not
   private loggedIn = new Subject< boolean > ();
 
+  //Storing our token
   private token: string;
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  //returns the token
   getToken()
   {
     return this.token;
@@ -24,11 +26,13 @@ export class AuthService {
   //creates a user
   createUser(usernameIn : String, emailIn : String, passwordIn : String, deptIn: String, adminIn: boolean)
   {
+    //Quick check to make sure the value coming in is not empty, can cause issues otherwise
     if(!adminIn)
     {
       adminIn = false;
     }
     
+    //creating an authdata object to be added to the post request, this is the user's details
     const authData : AuthData = {username : usernameIn, email : emailIn, password : passwordIn, department: deptIn, admin: adminIn}
 
     this.http.post('https://localhost:3000/api/user/signup', authData)
@@ -39,7 +43,8 @@ export class AuthService {
       })
   }
 
-
+  //returns the result of checking if the user is logged in or not,
+  //by if the token has a value
   checkLogin()
   {
     if(!this.token)
@@ -51,7 +56,8 @@ export class AuthService {
     }
   }
 
-  //checks if a user is logged in
+  //returns the logged in value as an observable so other components
+  //can subscribe to the changes and react accordingly
   getUpdatedLogin()
   {
     return this.loggedIn.asObservable();
@@ -68,7 +74,9 @@ export class AuthService {
         //saves token for authentication
         const token = response.token;
         this.token = token;
+        //updates the logged in variable
         this.loggedIn.next(true);
+        //When a user is logged in, route them to the post list
         this.router.navigateByUrl('/posts');
       })
   }
@@ -76,7 +84,9 @@ export class AuthService {
   //logout method
   logout()
   {
+    //clears the session token
     this.token = undefined;
+    //updates the logged in variable
     this.loggedIn.next(false);
   }
 }

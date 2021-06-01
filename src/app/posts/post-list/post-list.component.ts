@@ -18,6 +18,7 @@ export class PostListComponent implements OnInit {
   
   ngOnInit(): void {
     this.postService.getPosts();
+    //subscribes to the list in the post service
     this.postSubscription = this.postService.getPostUpdateListener()
       .subscribe((posts : Post[]) => 
       {
@@ -26,6 +27,7 @@ export class PostListComponent implements OnInit {
       })
   }
 
+  //deletes a post
   deletePost(postID : string)
   {
     this.postService.deletePost(postID);

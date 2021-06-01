@@ -14,6 +14,11 @@ export class SignupComponent implements OnInit {
   passwordError: string ='Please enter a password that conatains lowercase, uppercase letters and at least one number';
   departmentError: string = 'Please Select a Department';
   
+   /*
+   * Sign up Component uses Regex and required fields to validate
+   * input before submission
+   */
+  
   constructor(public authService: AuthService) { }
 
   ngOnInit(): void {

@@ -17,6 +17,7 @@ export class PostService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
+  //gets posts from the API
   getPosts(){
     this.http.get<{message: string, posts: any}>('https://localhost:3000/api/posts')
     .pipe(map((postData) => 
@@ -40,6 +41,7 @@ export class PostService {
       });
   }
 
+  //returns our list of posts as an observable
   getPostUpdateListener(){
     return this.updatedPosts.asObservable();
   }
@@ -52,13 +54,15 @@ export class PostService {
     let decodedToken :AuthData;
     let post: Post;
 
-    //if the user is not authenticated token is undefined
+    //if the user is not authenticated token is undefined, a return inside will end the function,
+    //but I'd rather let the unauthenticated error show, so the user knows something is wrong.
     if(!token)
     {
       post = {id: null, username: '', department: '', date: dateIn, postContent:postContentIn, adminPost: false}
     }
     else
     {
+      //decode the token to get the signed in user's information
       decodedToken = jwt_decode(token);
       post = {id: null, username: decodedToken.username, department: decodedToken.department, date: dateIn, postContent:postContentIn, adminPost: decodedToken.admin}
     }
@@ -72,6 +76,7 @@ export class PostService {
     })
   }
 
+  //deletes a post using the post ID
   deletePost(postID : string)
   {
     this.http.delete<{message: String}>('https://localhost:3000/api/posts/' + postID)
@@ -80,7 +85,6 @@ export class PostService {
           const updatedPostsDel = this.posts.filter(post => post.id !== postID);
           this.posts = updatedPostsDel;
           this.updatedPosts.next([...this.posts]);
-          console.log(`Order with ID ${postID} deleted`);
           console.log(' RESPONSE => ' + response.message);
         });
   }

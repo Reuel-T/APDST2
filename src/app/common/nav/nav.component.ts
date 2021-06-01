@@ -12,7 +12,9 @@ export class NavComponent implements OnInit {
 
   constructor(public authService: AuthService, private router: Router) { }
 
-
+  /**
+   * Nav Component that handles navigation between app components
+   */
   private loginSub: Subscription
   isLoggedIn: boolean = false;
 

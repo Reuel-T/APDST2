@@ -11,6 +11,11 @@ export class LoginComponent implements OnInit {
 
   constructor(public authService: AuthService) { }
   
+  /*
+   * Login Component uses Regex and required fields to validate
+   * input before submission
+   */
+
   emailError:string = 'Please enter a valid email address';
   passwordError: string ='Enter your password';
 
