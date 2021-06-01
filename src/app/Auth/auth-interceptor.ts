@@ -8,9 +8,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
    intercept(req: HttpRequest<any>, next : HttpHandler)
    {
-    const authToken = this.authService.getToken();
-    console.log('Auth Token - Interceptor');
-    console.log(authToken);        
+    const authToken = this.authService.getToken();   
 
     /* 
      * Intercpets the requests made by the client
@@ -19,6 +17,8 @@ export class AuthInterceptor implements HttpInterceptor {
      * 
      * The Request is cloned and the authorization header is set with the token
      * 
+     * Used in for authorization
+     * 
      * The new, modified header is then returned
      */
 
@@ -26,7 +26,6 @@ export class AuthInterceptor implements HttpInterceptor {
         {
             headers: req.headers.set('Authorization', 'Bearer ' + authToken)
         });
-    console.log('Interceptor did the thing');
     return next.handle(authRequest);
    }
 }

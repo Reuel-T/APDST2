@@ -26,7 +26,7 @@ export class AuthService {
   //creates a user
   createUser(usernameIn : String, emailIn : String, passwordIn : String, deptIn: String, adminIn: boolean)
   {
-    //Quick check to make sure the value coming in is not empty, can cause issues otherwise
+    //Quick check to make sure the value coming in is not empty, may cause issues otherwise
     if(!adminIn)
     {
       adminIn = false;

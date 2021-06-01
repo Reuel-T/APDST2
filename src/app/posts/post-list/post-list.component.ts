@@ -25,7 +25,6 @@ export class PostListComponent implements OnInit {
       .subscribe((posts : Post[]) => 
       {
         this.posts = posts;
-        console.log(this.posts);
       })
   }
 

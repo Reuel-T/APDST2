@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
         this.sanitizer.sanitize(SecurityContext.HTML, form.value.entredPassword)
         );
     }
-    console.log(form.value);
   }
 
 }

@@ -41,7 +41,6 @@ export class SignupComponent implements OnInit {
         this.sanitizer.sanitize(SecurityContext.HTML, form.value.entredPassword),
         this.sanitizer.sanitize(SecurityContext.HTML, form.value.entredDept),
         form.value.role);
-      console.log(form.value);
     }
   }
 
