@@ -1,0 +1,32 @@
+REQ	| DATE -> 11/Jul/2021:17:40:52 +0000	| METHOD -> OPTIONS| URL -> /api/user/login	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:40:52 +0000	| METHOD -> OPTIONS| URL -> /api/user/login	| STATUS -> 200	| RESPONSE TIME -> 2.776 ms
+REQ	| DATE -> 11/Jul/2021:17:40:52 +0000	| METHOD -> POST| URL -> /api/user/login	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {"email":"reueltyler@gmail.com","password":"Mfginfsmw2012"}
+RES	| DATE -> 11/Jul/2021:17:40:52 +0000	| METHOD -> POST| URL -> /api/user/login	| STATUS -> 200	| RESPONSE TIME -> 347.025 ms
+REQ	| DATE -> 11/Jul/2021:17:40:52 +0000	| METHOD -> OPTIONS| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:40:52 +0000	| METHOD -> OPTIONS| URL -> /api/posts	| STATUS -> 200	| RESPONSE TIME -> 0.466 ms
+REQ	| DATE -> 11/Jul/2021:17:40:52 +0000	| METHOD -> GET| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:40:53 +0000	| METHOD -> GET| URL -> /api/posts	| STATUS -> 200	| RESPONSE TIME -> 236.785 ms
+REQ	| DATE -> 11/Jul/2021:17:41:12 +0000	| METHOD -> OPTIONS| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:41:12 +0000	| METHOD -> OPTIONS| URL -> /api/posts	| STATUS -> 200	| RESPONSE TIME -> 0.374 ms
+REQ	| DATE -> 11/Jul/2021:17:41:12 +0000	| METHOD -> POST| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {"id":null,"username":"Rootler","department":"Sanitation","date":"2021-07-11T17:41:12.115Z","postContent":" This is a post that has some content, it has a script, that should be removed, Hopefully the script is gone. Here's an HTML entitiy, &lt; as well as some text that hopefully is <b> bold </b>","adminPost":true}
+RES	| DATE -> 11/Jul/2021:17:41:12 +0000	| METHOD -> POST| URL -> /api/posts	| STATUS -> 201	| RESPONSE TIME -> 286.195 ms
+REQ	| DATE -> 11/Jul/2021:17:41:12 +0000	| METHOD -> GET| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:41:12 +0000	| METHOD -> GET| URL -> /api/posts	| STATUS -> 200	| RESPONSE TIME -> 245.906 ms
+REQ	| DATE -> 11/Jul/2021:17:41:49 +0000	| METHOD -> OPTIONS| URL -> /api/user/login	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:41:49 +0000	| METHOD -> OPTIONS| URL -> /api/user/login	| STATUS -> 200	| RESPONSE TIME -> 0.288 ms
+REQ	| DATE -> 11/Jul/2021:17:41:49 +0000	| METHOD -> POST| URL -> /api/user/login	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {"email":"tu3@email.com","password":"Mfginfsmw2012"}
+RES	| DATE -> 11/Jul/2021:17:41:49 +0000	| METHOD -> POST| URL -> /api/user/login	| STATUS -> 200	| RESPONSE TIME -> 321.249 ms
+REQ	| DATE -> 11/Jul/2021:17:41:49 +0000	| METHOD -> OPTIONS| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:41:49 +0000	| METHOD -> OPTIONS| URL -> /api/posts	| STATUS -> 200	| RESPONSE TIME -> 0.225 ms
+REQ	| DATE -> 11/Jul/2021:17:41:49 +0000	| METHOD -> GET| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:41:50 +0000	| METHOD -> GET| URL -> /api/posts	| STATUS -> 304	| RESPONSE TIME -> 235.437 ms
+REQ	| DATE -> 11/Jul/2021:17:42:00 +0000	| METHOD -> OPTIONS| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:42:00 +0000	| METHOD -> OPTIONS| URL -> /api/posts	| STATUS -> 200	| RESPONSE TIME -> 0.232 ms
+REQ	| DATE -> 11/Jul/2021:17:42:00 +0000	| METHOD -> POST| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {"id":null,"username":"ToyotaSupra","department":"Sanitation","date":"2021-07-11T17:42:00.124Z","postContent":" This is a post that has some content, it has a script, that should be removed, Hopefully the script is gone. Here's an HTML entitiy, &lt; as well as some text that hopefully is <b> bold </b>","adminPost":false}
+RES	| DATE -> 11/Jul/2021:17:42:00 +0000	| METHOD -> POST| URL -> /api/posts	| STATUS -> 201	| RESPONSE TIME -> 243.016 ms
+REQ	| DATE -> 11/Jul/2021:17:42:00 +0000	| METHOD -> GET| URL -> /api/posts	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:42:00 +0000	| METHOD -> GET| URL -> /api/posts	| STATUS -> 200	| RESPONSE TIME -> 233.384 ms
+REQ	| DATE -> 11/Jul/2021:17:46:09 +0000	| METHOD -> OPTIONS| URL -> /api/user/login	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {}
+RES	| DATE -> 11/Jul/2021:17:46:09 +0000	| METHOD -> OPTIONS| URL -> /api/user/login	| STATUS -> 200	| RESPONSE TIME -> 0.394 ms
+REQ	| DATE -> 11/Jul/2021:17:46:09 +0000	| METHOD -> POST| URL -> /api/user/login	| STATUS -> -	| RESPONSE TIME -> - ms	|BODY -> REQ BODY -> {"email":"reuel@mail.com","password":"Mfginfsmw2012"}
+RES	| DATE -> 11/Jul/2021:17:46:10 +0000	| METHOD -> POST| URL -> /api/user/login	| STATUS -> 401	| RESPONSE TIME -> 241.785 ms
